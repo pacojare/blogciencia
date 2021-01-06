@@ -1,18 +1,18 @@
 <?php if (isset($_SESSION['user']['username'])) { ?>
 	<div class="logged_in_info">
-		<span>Bienvenido  <?php echo $_SESSION['user']['username'] ?></span>
+		<span>Bienvenido  <b><?php echo $_SESSION['user']['username'] ?></b></span>
 		|
 		<span><a href="logout.php">Salir</a></span>
 	</div>
 <?php }else{ ?>
 	<div class="banner">
 		<div class="welcome_msg">
-			<h1>Inspiración de hoy</h1>
+			<h1>Integrantes</h1>
 			<p> 
-			    Un día tu vida<br> 
-			    Se va a cerrar ante tus ojos. <br> 
-			    Asegurate de que pase. <br>
-				<span>~ Gerard Way</span>
+			    Archundia Herrera José Miguel<br> 
+			    Gómez Maya Jorge <br> 
+			    Jasso Reyes Francisco <br>
+				Martínez Jr Gustavo <br>
 			</p>
 			<a href="register.php" class="btn">Unete!</a>
 		</div>

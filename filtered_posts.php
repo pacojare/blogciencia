@@ -15,6 +15,8 @@
 <!-- Navbar -->
 	<?php include( ROOT_PATH . '/includes/navbar.php'); ?>
 <!-- // Navbar -->
+<?php include( ROOT_PATH . '/includes/banner2.php'); ?>
+
 <!-- content -->
 <div class="content">
 	<h2 class="content-title">

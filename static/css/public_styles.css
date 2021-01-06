@@ -91,7 +91,7 @@ form input:focus {
 	font-size: 3em;
 	letter-spacing: 5px;
 	font-weight: 100;
-	font-family: 'Tangerine', cursive;
+	font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
 /* FOOTER */
@@ -114,7 +114,7 @@ form input:focus {
 	min-height: 400px;
 	color: white;
 	border-radius: 5px;
-	background-image: url('../images/banner.jpg');
+	background-image: url('../images/banner2.jpg');
 	background-size: 100% 100%;
 }
 .banner .welcome_msg {
@@ -337,5 +337,7 @@ form input:focus {
 .logged_in_info {
 	text-align: right; 
 	padding: 10px;
+	font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+	font-size: large;
 }
 

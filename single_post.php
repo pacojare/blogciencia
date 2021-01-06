@@ -8,13 +8,15 @@
 ?>
 <?php include('includes/header.php'); ?>
 <title> <?php echo $post['title'] ?> | LifeBlog</title>
+
 </head>
 <body>
 <div class="container">
 	<!-- Navbar -->
 		<?php include( ROOT_PATH . '/includes/navbar.php'); ?>
 	<!-- // Navbar -->
-	
+	<?php include( ROOT_PATH . '/includes/banner2.php'); ?>
+
 	<div class="content" >
 		<!-- Page wrapper -->
 		<div class="post-wrapper">
@@ -40,7 +42,7 @@
 		<div class="post-sidebar">
 			<div class="card">
 				<div class="card-header">
-					<h2>Topics</h2>
+					<h2>Etiquetas</h2>
 				</div>
 				<div class="card-content">
 					<?php foreach ($topics as $topic): ?>
