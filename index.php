@@ -7,7 +7,7 @@
 <?php $posts = getPublishedPosts(); ?>
 <?php require_once( ROOT_PATH . '/includes/header.php') ?>
 
-	<title>Blog CienciA </title>
+	<title>Blog Ciencia </title>
 </head>
 <body>
 	<!-- container - wraps whole page -->
@@ -40,7 +40,7 @@
 				            <h3><?php echo $post['title'] ?></h3>
 				            <div class="info">
 					            <span><?php echo date("F j, Y ", strtotime($post["created_at"])); ?></span>
-					            <span class="read_more">Read more...</span>
+					            <span class="read_more">Seguir leyendo...</span>
 				            </div>
 			            </div>
 		            </a>

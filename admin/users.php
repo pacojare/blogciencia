@@ -6,7 +6,7 @@
 	$roles = ['Admin', 'Author'];				
 ?>
 <?php include(ROOT_PATH . '/admin/includes/header.php'); ?>
-	<title>Admin | Manage users</title>
+	<title>Admin | Administrar Usuarios</title>
 </head>
 <body>
 	<!-- admin navbar -->
@@ -16,7 +16,7 @@
 		<?php include(ROOT_PATH . '/admin/includes/menu.php') ?>
 		<!-- Middle form - to create and edit  -->
 		<div class="action">
-			<h1 class="page-title">Create/Edit Admin User</h1>
+			<h1 class="page-title">Crear/Editar Admin</h1>
 
 			<form method="post" action="<?php echo BASE_URL . 'admin/users.php'; ?>" >
 
@@ -41,9 +41,9 @@
 
 				<!-- if editing user, display the update button instead of create button -->
 				<?php if ($isEditingUser === true): ?> 
-					<button type="submit" class="btn" name="update_admin">UPDATE</button>
+					<button type="submit" class="btn" name="update_admin">Actualizar</button>
 				<?php else: ?>
-					<button type="submit" class="btn" name="create_admin">Save User</button>
+					<button type="submit" class="btn" name="create_admin">Guardar Usuario</button>
 				<?php endif ?>
 			</form>
 		</div>
@@ -55,14 +55,14 @@
 			<?php include(ROOT_PATH . '/includes/messages.php') ?>
 
 			<?php if (empty($admins)): ?>
-				<h1>No admins in the database.</h1>
+				<h1>No hay admins.</h1>
 			<?php else: ?>
 				<table class="table">
 					<thead>
 						<th>N</th>
 						<th>Admin</th>
-						<th>Role</th>
-						<th colspan="2">Action</th>
+						<th>Rol</th>
+						<th colspan="2">Accion</th>
 					</thead>
 					<tbody>
 					<?php foreach ($admins as $key => $admin): ?>

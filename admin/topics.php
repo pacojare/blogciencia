@@ -3,7 +3,7 @@
 <?php include(ROOT_PATH . '/admin/includes/header.php'); ?>
 <!-- Get all topics from DB -->
 <?php $topics = getAllTopics();	?>
-	<title>Admin | Manage Topics</title>
+	<title>Admin | Administrar Temas</title>
 </head>
 <body>
 	<!-- admin navbar -->
@@ -14,7 +14,7 @@
 
 		<!-- Middle form - to create and edit -->
 		<div class="action">
-			<h1 class="page-title">Create/Edit Topics</h1>
+			<h1 class="page-title">Crear/Editar Temas</h1>
 			<form method="post" action="<?php echo BASE_URL . 'admin/topics.php'; ?>" >
 				<!-- validation errors for the form -->
 				<?php include(ROOT_PATH . '/includes/errors.php') ?>
@@ -38,13 +38,13 @@
 			<!-- Display notification message -->
 			<?php include(ROOT_PATH . '/includes/messages.php') ?>
 			<?php if (empty($topics)): ?>
-				<h1>No topics in the database.</h1>
+				<h1>No hay temas.</h1>
 			<?php else: ?>
 				<table class="table">
 					<thead>
 						<th>N</th>
-						<th>Topic Name</th>
-						<th colspan="2">Action</th>
+						<th>Nombre del tema</th>
+						<th colspan="2">Acción</th>
 					</thead>
 					<tbody>
 					<?php foreach ($topics as $key => $topic): ?>
