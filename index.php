@@ -7,7 +7,7 @@
 <?php $posts = getPublishedPosts(); ?>
 <?php require_once( ROOT_PATH . '/includes/header.php') ?>
 
-	<title>Blog Ciencia </title>
+	<title>Blog CienciA </title>
 </head>
 <body>
 	<!-- container - wraps whole page -->
