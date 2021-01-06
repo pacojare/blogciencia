@@ -13,9 +13,9 @@
 		<form method="post" action="login.php" >
 			<h2>Login</h2>
 			<?php include(ROOT_PATH . '/includes/errors.php') ?>
-			<input type="text" name="username" value="<?php echo $username; ?>" value="" placeholder="Username">
-			<input type="password" name="password" placeholder="Password">
-			<button type="submit" class="btn" name="login_btn">Login</button>
+			<input type="text" name="username" value="<?php echo $username; ?>" value="" placeholder="Nombre de usuario">
+			<input type="password" name="password" placeholder="Contraseña">
+			<button type="submit" class="btn" name="login_btn">Iniciar</button>
 			<p>
 				¿No tienes cuenta? <a href="register.php">Regístrate</a>
 			</p>

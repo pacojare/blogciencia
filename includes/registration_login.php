@@ -13,10 +13,10 @@
 		$password_2 = esc($_POST['password_2']);
 
 		// form validation: ensure that the form is correctly filled
-		if (empty($username)) {  array_push($errors, "Uhmm...We gonna need your username"); }
-		if (empty($email)) { array_push($errors, "Oops.. Email is missing"); }
-		if (empty($password_1)) { array_push($errors, "uh-oh you forgot the password"); }
-		if ($password_1 != $password_2) { array_push($errors, "The two passwords do not match");}
+		if (empty($username)) {  array_push($errors, "Necesitamos tu nombre de usuario"); }
+		if (empty($email)) { array_push($errors, "Falta el correo"); }
+		if (empty($password_1)) { array_push($errors, "Falta contraseña"); }
+		if ($password_1 != $password_2) { array_push($errors, "No coinciden las contraseñas");}
 
 		// Ensure that no user is registered twice. 
 		// the email and usernames should be unique
@@ -28,10 +28,10 @@
 
 		if ($user) { // if user exists
 			if ($user['username'] === $username) {
-			  array_push($errors, "Username already exists");
+			  array_push($errors, "Ya existe este nombre de usuario");
 			}
 			if ($user['email'] === $email) {
-			  array_push($errors, "Email already exists");
+			  array_push($errors, "Ya existe este email");
 			}
 		}
 		// register user if there are no errors in the form
@@ -49,12 +49,12 @@
 
 			// if user is admin, redirect to admin area
 			if ( in_array($_SESSION['user']['role'], ["Admin", "Author"])) {
-				$_SESSION['message'] = "You are now logged in";
+				$_SESSION['message'] = "Ya estas logeado";
 				// redirect to admin area
 				header('location: ' . BASE_URL . 'admin/dashboard.php');
 				exit(0);
 			} else {
-				$_SESSION['message'] = "You are now logged in";
+				$_SESSION['message'] = "Ya estas logeado";
 				// redirect to public area
 				header('location: index.php');				
 				exit(0);
@@ -67,8 +67,8 @@
 		$username = esc($_POST['username']);
 		$password = esc($_POST['password']);
 
-		if (empty($username)) { array_push($errors, "Username required"); }
-		if (empty($password)) { array_push($errors, "Password required"); }
+		if (empty($username)) { array_push($errors, "Falta Nombre de Usuario"); }
+		if (empty($password)) { array_push($errors, "Falta Contraseña"); }
 		if (empty($errors)) {
 			$password = md5($password); // encrypt password
 			$sql = "SELECT * FROM users WHERE username='$username' and password='$password' LIMIT 1";
@@ -83,18 +83,18 @@
 
 				// if user is admin, redirect to admin area
 				if ( in_array($_SESSION['user']['role'], ["Admin", "Author"])) {
-					$_SESSION['message'] = "You are now logged in";
+					$_SESSION['message'] = "Ya estas logeado";
 					// redirect to admin area
 					header('location: ' . BASE_URL . '/admin/dashboard.php');
 					exit(0);
 				} else {
-					$_SESSION['message'] = "You are now logged in";
+					$_SESSION['message'] = "Ya estas logeado";
 					// redirect to public area
 					header('location: index.php');				
 					exit(0);
 				}
 			} else {
-				array_push($errors, 'Wrong credentials');
+				array_push($errors, 'Datos erroneos');
 			}
 		}
 	}

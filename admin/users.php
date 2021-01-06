@@ -43,7 +43,7 @@
 				<?php if ($isEditingUser === true): ?> 
 					<button type="submit" class="btn" name="update_admin">Actualizar</button>
 				<?php else: ?>
-					<button type="submit" class="btn" name="create_admin">Guardar Usuario</button>
+					<button type="submit" class="btn" name="create_admin">Guardar Admin</button>
 				<?php endif ?>
 			</form>
 		</div>

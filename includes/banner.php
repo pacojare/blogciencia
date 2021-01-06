@@ -14,7 +14,7 @@
 			    Jasso Reyes Francisco <br>
 				Martínez Jr Gustavo <br>
 			</p>
-			<a href="register.php" class="btn">Unete!</a>
+			<a href="register.php" class="btn">Únete!</a>
 		</div>
 
 		<div class="login_div">

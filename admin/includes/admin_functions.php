@@ -106,11 +106,11 @@ function createAdmin($request_values){
 		$role = esc($request_values['role']);
 	}
 	// form validation: ensure that the form is correctly filled
-	if (empty($username)) { array_push($errors, "Uhmm...We gonna need the username"); }
-	if (empty($email)) { array_push($errors, "Oops.. Email is missing"); }
-	if (empty($role)) { array_push($errors, "Role is required for admin users");}
-	if (empty($password)) { array_push($errors, "uh-oh you forgot the password"); }
-	if ($password != $passwordConfirmation) { array_push($errors, "The two passwords do not match"); }
+	if (empty($username)) { array_push($errors, "Vamos a necesitar el nombre de usuario"); }
+	if (empty($email)) { array_push($errors, "Falta el correo"); }
+	if (empty($role)) { array_push($errors, "Falta el rol para admin");}
+	if (empty($password)) { array_push($errors, "Olvidaste la contraseña"); }
+	if ($password != $passwordConfirmation) { array_push($errors, "No coinciden las contraseñas"); }
 	// Ensure that no user is registered twice. 
 	// the email and usernames should be unique
 	$user_check_query = "SELECT * FROM users WHERE username='$username' 
@@ -119,11 +119,11 @@ function createAdmin($request_values){
 	$user = mysqli_fetch_assoc($result);
 	if ($user) { // if user exists
 		if ($user['username'] === $username) {
-		  array_push($errors, "Username already exists");
+		  array_push($errors, "Ya existe ese nombre de usuario");
 		}
 
 		if ($user['email'] === $email) {
-		  array_push($errors, "Email already exists");
+		  array_push($errors, "Ya existe ese email");
 		}
 	}
 	// register user if there are no errors in the form
@@ -133,7 +133,7 @@ function createAdmin($request_values){
 				  VALUES('$username', '$email', '$role', '$password', now(), now())";
 		mysqli_query($conn, $query);
 
-		$_SESSION['message'] = "Admin user created successfully";
+		$_SESSION['message'] = "Admin creado";
 		header('location: users.php');
 		exit(0);
 	}
@@ -182,7 +182,7 @@ function updateAdmin($request_values){
 		$query = "UPDATE users SET username='$username', email='$email', role='$role', password='$password' WHERE id=$admin_id";
 		mysqli_query($conn, $query);
 
-		$_SESSION['message'] = "Admin user updated successfully";
+		$_SESSION['message'] = "Admin actualizado";
 		header('location: users.php');
 		exit(0);
 	}
@@ -192,7 +192,7 @@ function deleteAdmin($admin_id) {
 	global $conn;
 	$sql = "DELETE FROM users WHERE id=$admin_id";
 	if (mysqli_query($conn, $sql)) {
-		$_SESSION['message'] = "User successfully deleted";
+		$_SESSION['message'] = "Usuario eliminado";
 		header("location: users.php");
 		exit(0);
 	}
@@ -215,13 +215,13 @@ function createTopic($request_values){
 	$topic_slug = makeSlug($topic_name);
 	// validate form
 	if (empty($topic_name)) { 
-		array_push($errors, "Topic name required"); 
+		array_push($errors, "Tema requerido"); 
 	}
 	// Ensure that no topic is saved twice. 
 	$topic_check_query = "SELECT * FROM topics WHERE slug='$topic_slug' LIMIT 1";
 	$result = mysqli_query($conn, $topic_check_query);
 	if (mysqli_num_rows($result) > 0) { // if topic exists
-		array_push($errors, "Topic already exists");
+		array_push($errors, "Ya existe este tema");
 	}
 	// register topic if there are no errors in the form
 	if (count($errors) == 0) {
@@ -229,7 +229,7 @@ function createTopic($request_values){
 				  VALUES('$topic_name', '$topic_slug')";
 		mysqli_query($conn, $query);
 
-		$_SESSION['message'] = "Topic created successfully";
+		$_SESSION['message'] = "Tema creado";
 		header('location: topics.php');
 		exit(0);
 	}
@@ -255,14 +255,14 @@ function updateTopic($request_values) {
 	$topic_slug = makeSlug($topic_name);
 	// validate form
 	if (empty($topic_name)) { 
-		array_push($errors, "Topic name required"); 
+		array_push($errors, "Falta tema"); 
 	}
 	// register topic if there are no errors in the form
 	if (count($errors) == 0) {
 		$query = "UPDATE topics SET name='$topic_name', slug='$topic_slug' WHERE id=$topic_id";
 		mysqli_query($conn, $query);
 
-		$_SESSION['message'] = "Topic updated successfully";
+		$_SESSION['message'] = "Tema actualizado";
 		header('location: topics.php');
 		exit(0);
 	}
@@ -272,7 +272,7 @@ function deleteTopic($topic_id) {
 	global $conn;
 	$sql = "DELETE FROM topics WHERE id=$topic_id";
 	if (mysqli_query($conn, $sql)) {
-		$_SESSION['message'] = "Topic successfully deleted";
+		$_SESSION['message'] = "Tema eliminado";
 		header("location: topics.php");
 		exit(0);
 	}

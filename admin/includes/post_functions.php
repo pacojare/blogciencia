@@ -87,23 +87,23 @@ function createPost($request_values)
 		// create slug: if title is "The Storm Is Over", return "the-storm-is-over" as slug
 		$post_slug = makeSlug($title);
 		// validate form
-		if (empty($title)) { array_push($errors, "Post title is required"); }
-		if (empty($body)) { array_push($errors, "Post body is required"); }
-		if (empty($topic_id)) { array_push($errors, "Post topic is required"); }
+		if (empty($title)) { array_push($errors, "Título del artículo"); }
+		if (empty($body)) { array_push($errors, "Cuerpo del artículo"); }
+		if (empty($topic_id)) { array_push($errors, "Tema del artículo"); }
 		// Get image name
 	  	$featured_image = $_FILES['featured_image']['name'];
-	  	if (empty($featured_image)) { array_push($errors, "Featured image is required"); }
+	  	if (empty($featured_image)) { array_push($errors, "Falta imagen"); }
 	  	// image file directory
 	  	$target = "../static/images/" . basename($featured_image);
 	  	if (!move_uploaded_file($_FILES['featured_image']['tmp_name'], $target)) {
-	  		array_push($errors, "Failed to upload image. Please check file settings for your server");
+	  		array_push($errors, "Error al cargar imagen. Compruebe la configuración de archivos de su servidor");
 	  	}
 		// Ensure that no post is saved twice. 
 		$post_check_query = "SELECT * FROM posts WHERE slug='$post_slug' LIMIT 1";
 		$result = mysqli_query($conn, $post_check_query);
 
 		if (mysqli_num_rows($result) > 0) { // if post exists
-			array_push($errors, "A post already exists with that title.");
+			array_push($errors, "Ya existe un artículo con ese nombre.");
 		}
 		// create post if there are no errors in the form
 		if (count($errors) == 0) {
@@ -114,7 +114,7 @@ function createPost($request_values)
 				$sql = "INSERT INTO post_topic (post_id, topic_id) VALUES($inserted_post_id, $topic_id)";
 				mysqli_query($conn, $sql);
 
-				$_SESSION['message'] = "Post created successfully";
+				$_SESSION['message'] = "Artículo creado";
 				header('location: posts.php');
 				exit(0);
 			}
@@ -151,8 +151,8 @@ function createPost($request_values)
 		// create slug: if title is "The Storm Is Over", return "the-storm-is-over" as slug
 		$post_slug = makeSlug($title);
 
-		if (empty($title)) { array_push($errors, "Post title is required"); }
-		if (empty($body)) { array_push($errors, "Post body is required"); }
+		if (empty($title)) { array_push($errors, "Título del artículo"); }
+		if (empty($body)) { array_push($errors, "Cuerpo del artículo); }
 		// if new featured image has been provided
 		$featured_image = $_FILES['featured_image']['name'];
 		if (isset($_POST['featured_image'])) {
@@ -160,7 +160,7 @@ function createPost($request_values)
 		  	// image file directory
 		  	$target = "../static/images/" . basename($featured_image);
 		  	if (!move_uploaded_file($_FILES['featured_image']['tmp_name'], $target)) {
-		  		array_push($errors, "Failed to upload image. Please check file settings for your server");
+		  		array_push($errors, "Error al cargar imagen. Compruebe la configuración de archivos de su servidor");
 		  	}
 		}
 
@@ -174,12 +174,12 @@ function createPost($request_values)
 					// create relationship between post and topic
 					$sql = "INSERT INTO post_topic (post_id, topic_id) VALUES($inserted_post_id, $topic_id)";
 					mysqli_query($conn, $sql);
-					$_SESSION['message'] = "Post created successfully";
+					$_SESSION['message'] = "Artículo creado";
 					header('location: posts.php');
 					exit(0);
 				}
 			}
-			$_SESSION['message'] = "Post updated successfully";
+			$_SESSION['message'] = "Artículo editado";
 			header('location: posts.php');
 			exit(0);
 		}
@@ -190,7 +190,7 @@ function createPost($request_values)
 		global $conn;
 		$sql = "DELETE FROM posts WHERE id=$post_id";
 		if (mysqli_query($conn, $sql)) {
-			$_SESSION['message'] = "Post successfully deleted";
+			$_SESSION['message'] = "Artículo eliminado";
 			header("location: posts.php");
 			exit(0);
 		}
@@ -199,10 +199,10 @@ function createPost($request_values)
 if (isset($_GET['publish']) || isset($_GET['unpublish'])) {
 	$message = "";
 	if (isset($_GET['publish'])) {
-		$message = "Post published successfully";
+		$message = "Artículo público exitoso";
 		$post_id = $_GET['publish'];
 	} else if (isset($_GET['unpublish'])) {
-		$message = "Post successfully unpublished";
+		$message = "Artículo sin publicar exitoso";
 		$post_id = $_GET['unpublish'];
 	}
 	togglePublishPost($post_id, $message);

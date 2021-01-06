@@ -16,13 +16,13 @@
 		<form method="post" action="register.php" >
 			<h2>Regístrate en LifeBlog</h2>
 			<?php include(ROOT_PATH . '/includes/errors.php') ?>
-			<input  type="text" name="username" value="<?php echo $username; ?>"  placeholder="Username">
+			<input  type="text" name="username" value="<?php echo $username; ?>"  placeholder="Nombre de usuario">
 			<input type="email" name="email" value="<?php echo $email ?>" placeholder="Email">
-			<input type="password" name="password_1" placeholder="Password">
-			<input type="password" name="password_2" placeholder="Password confirmation">
-			<button type="submit" class="btn" name="reg_user">Register</button>
+			<input type="password" name="password_1" placeholder="Contraseña">
+			<input type="password" name="password_2" placeholder="Confirmar contraseña">
+			<button type="submit" class="btn" name="reg_user">Registrarse</button>
 			<p>
-				Already a member? <a href="login.php">Sign in</a>
+				¿Ya eres miembro? <a href="login.php">Inicia Sesión</a>
 			</p>
 		</form>
 	</div>
