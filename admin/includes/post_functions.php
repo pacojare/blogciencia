@@ -154,9 +154,9 @@ function createPost($request_values)
 		if (empty($title)) { array_push($errors, "Post title is required"); }
 		if (empty($body)) { array_push($errors, "Post body is required"); }
 		// if new featured image has been provided
+		$featured_image = $_FILES['featured_image']['name'];
 		if (isset($_POST['featured_image'])) {
 			// Get image name
-		  	$featured_image = $_FILES['featured_image']['name'];
 		  	// image file directory
 		  	$target = "../static/images/" . basename($featured_image);
 		  	if (!move_uploaded_file($_FILES['featured_image']['tmp_name'], $target)) {
