@@ -68,7 +68,3 @@
 	</div>
 </body>
 </html>
-
-<script>
-	CKEDITOR.replace('body');
-</script>
