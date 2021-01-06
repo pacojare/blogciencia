@@ -7,7 +7,7 @@
 	<div class="header">
 		<div class="logo">
 			<a href="<?php echo BASE_URL .'admin/dashboard.php' ?>">
-				<h1>LifeBlog - Admin</h1>
+				<h1>Blog Científico - Admin</h1>
 			</a>
 		</div>
 		<?php if (isset($_SESSION['user'])): ?>
@@ -21,16 +21,12 @@
 		<h1>Bienvenido</h1>
 		<div class="stats">
 			<a href="users.php" class="first">
-				<span>43</span> <br>
+				<br>
 				<span>Usuarios recien registrados</span>
 			</a>
 			<a href="posts.php">
-				<span>43</span> <br>
+				<br>
 				<span>Artículos publicados</span>
-			</a>
-			<a>
-				<span>43</span> <br>
-				<span>Comentarios publicados</span>
 			</a>
 		</div>
 		<br><br><br>

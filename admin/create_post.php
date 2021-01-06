@@ -26,7 +26,7 @@
 					<input type="hidden" name="post_id" value="<?php echo $post_id; ?>">
 				<?php endif ?>
 
-				<input type="text" name="title" value="<?php echo $title; ?>" placeholder="Title">
+				<input type="text" name="title" value="<?php echo $title; ?>" placeholder="Título">
 				<label style="float: left; margin: 5px auto 5px;">Imagenes destacadas</label>
 				<input type="file" name="featured_image" >
 				<textarea name="body" id="body" cols="30" rows="10"><?php echo $body; ?></textarea>
@@ -44,12 +44,12 @@
 					<!-- display checkbox according to whether post has been published or not -->
 					<?php if ($published == true): ?>
 						<label for="publish">
-							Publish
+							Publicar
 							<input type="checkbox" value="1" name="publish" checked="checked">&nbsp;
 						</label>
 					<?php else: ?>
 						<label for="publish">
-							Publish
+							Publicar
 							<input type="checkbox" value="1" name="publish">&nbsp;
 						</label>
 					<?php endif ?>

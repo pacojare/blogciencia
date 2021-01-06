@@ -28,12 +28,12 @@
 					<input type="hidden" name="admin_id" value="<?php echo $admin_id; ?>">
 				<?php endif ?>
 
-				<input type="text" name="username" value="<?php echo $username; ?>" placeholder="Username">
+				<input type="text" name="username" value="<?php echo $username; ?>" placeholder="Nombre Usuario">
 				<input type="email" name="email" value="<?php echo $email ?>" placeholder="Email">
-				<input type="password" name="password" placeholder="Password">
-				<input type="password" name="passwordConfirmation" placeholder="Password confirmation">
+				<input type="password" name="password" placeholder="Contraseña">
+				<input type="password" name="passwordConfirmation" placeholder="Confirmar Contraseña">
 				<select name="role">
-					<option value="" selected disabled>Assign role</option>
+					<option value="" selected disabled>Asignar Rol</option>
 					<?php foreach ($roles as $key => $role): ?>
 						<option value="<?php echo $role; ?>"><?php echo $role; ?></option>
 					<?php endforeach ?>
@@ -62,7 +62,7 @@
 						<th>N</th>
 						<th>Admin</th>
 						<th>Rol</th>
-						<th colspan="2">Accion</th>
+						<th colspan="2">Acción</th>
 					</thead>
 					<tbody>
 					<?php foreach ($admins as $key => $admin): ?>

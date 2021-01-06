@@ -26,12 +26,11 @@
 				<table class="table">
 						<thead>
 						<th>N</th>
-						<th>Titulo</th>
 						<th>Autor</th>
-						<th>Vistas</th>
+						<th>Título</th>
 						<!-- Only Admin can publish/unpublish post -->
 						<?php if ($_SESSION['user']['role'] == "Admin"): ?>
-							<th><small>Publish</small></th>
+							<th><small>Público</small></th>
 						<?php endif ?>
 						<th><small>Editar</small></th>
 						<th><small>Eliminar</small></th>
@@ -47,7 +46,6 @@
 									<?php echo $post['title']; ?>	
 								</a>
 							</td>
-							<td><?php echo $post['views']; ?></td>
 							
 							<!-- Only Admin can publish/unpublish post -->
 							<?php if ($_SESSION['user']['role'] == "Admin" ): ?>
