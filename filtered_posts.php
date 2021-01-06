@@ -37,8 +37,11 @@
 			</a>
 		</div>
 	<?php endforeach ?>
+	<?php include( ROOT_PATH . '/includes/sidebar.php') ?>
+
     
 </div>
+
 <!-- // content -->
 </div>
 <!-- // container -->
