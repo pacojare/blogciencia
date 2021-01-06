@@ -17,7 +17,7 @@
 			<input type="password" name="password" placeholder="Password">
 			<button type="submit" class="btn" name="login_btn">Login</button>
 			<p>
-				Not yet a member? <a href="register.php">Sign up</a>
+				¿No tienes cuenta? <a href="register.php">Regístrate</a>
 			</p>
 		</form>
 	</div>
