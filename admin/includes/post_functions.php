@@ -152,7 +152,7 @@ function createPost($request_values)
 		$post_slug = makeSlug($title);
 
 		if (empty($title)) { array_push($errors, "Título del artículo"); }
-		if (empty($body)) { array_push($errors, "Cuerpo del artículo); }
+		if (empty($body)) { array_push($errors, "Cuerpo del artículo"); }
 		// if new featured image has been provided
 		$featured_image = $_FILES['featured_image']['name'];
 		if (isset($_POST['featured_image'])) {
