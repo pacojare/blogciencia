@@ -1,13 +1,13 @@
 <?php 
-/* * * * * * * * * * * * * * *
-* Returns all published posts
-* * * * * * * * * * * * * * */
+/* 
+Devuelve todas las publicaciones activas
+*/
 function getPublishedPosts() {
-	// use global $conn object in function
+	// Usa el objeto global $conn en la función
 	global $conn;
 	$sql = "SELECT * FROM posts WHERE published=true";
 	$result = mysqli_query($conn, $sql);
-	// fetch all posts as an associative array called $posts
+	// Busca todas las publicaciones como una matriz asociativa llamada $posts
 	$posts = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
 	$final_posts = array();
@@ -17,10 +17,10 @@ function getPublishedPosts() {
 	}
 	return $final_posts;
 }
-/* * * * * * * * * * * * * * *
-* Receives a post id and
-* Returns topic of the post
-* * * * * * * * * * * * * * */
+/*  
+ Recibe un post id y
+ Devuelve el tema de la publicación.
+*/
 function getPostTopic($post_id){
 	global $conn;
 	$sql = "SELECT * FROM topics WHERE id=
@@ -30,9 +30,9 @@ function getPostTopic($post_id){
 	return $topic;
 }
 
-/* * * * * * * * * * * * * * * *
-* Returns all posts under a topic
-* * * * * * * * * * * * * * * * */
+/* 
+  Devuelve todas las publicaciones de un tema.
+*/
 function getPublishedPostsByTopic($topic_id) {
 	global $conn;
 	$sql = "SELECT * FROM posts ps 
@@ -41,7 +41,7 @@ function getPublishedPostsByTopic($topic_id) {
 				WHERE pt.topic_id=$topic_id GROUP BY pt.post_id 
 				HAVING COUNT(1) = 1)";
 	$result = mysqli_query($conn, $sql);
-	// fetch all posts as an associative array called $posts
+	// buscar todas las publicaciones como una matriz asociativa llamada $posts
 	$posts = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
 	$final_posts = array();
@@ -51,9 +51,9 @@ function getPublishedPostsByTopic($topic_id) {
 	}
 	return $final_posts;
 }
-/* * * * * * * * * * * * * * * *
-* Returns topic name by topic id
-* * * * * * * * * * * * * * * * */
+/* 
+ Devuelve el nombre del tema por ID de tema
+*/
 function getTopicNameById($id)
 {
 	global $conn;
@@ -63,27 +63,27 @@ function getTopicNameById($id)
 	return $topic['name'];
 }
 
-/* * * * * * * * * * * * * * *
-* Returns a single post
-* * * * * * * * * * * * * * */
+/* 
+ Devuelve una sola publicación
+*/
 function getPost($slug){
 	global $conn;
-	// Get single post slug
+	// Obtener slug de publicación única
 	$post_slug = $_GET['post-slug'];
 	$sql = "SELECT * FROM posts WHERE slug='$post_slug' AND published=true";
 	$result = mysqli_query($conn, $sql);
 
-	// fetch query results as associative array.
+	// Recuperar los resultados de la consulta como matriz asociativa
 	$post = mysqli_fetch_assoc($result);
 	if ($post) {
-		// get the topic to which this post belongs
+		// Obtiene el tema al que pertenece esta publicación
 		$post['topic'] = getPostTopic($post['id']);
 	}
 	return $post;
 }
-/* * * * * * * * * * * *
-*  Returns all topics
-* * * * * * * * * * * * */
+/* 
+  Devuelve todos los temas
+*/
 function getAllTopics()
 {
 	global $conn;
