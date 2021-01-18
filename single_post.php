@@ -7,7 +7,7 @@
 	$topics = getAllTopics();
 ?>
 <?php include('includes/header.php'); ?>
-<title> <?php echo $post['title'] ?> | LifeBlog</title>
+<title> <?php echo $post['title'] ?> | Blog Ciencia</title>
 
 </head>
 <body>

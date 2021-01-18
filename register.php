@@ -4,7 +4,7 @@
 
 <?php include('includes/header.php'); ?>
 
-<title>LifeBlog | Regístrate </title>
+<title>Blog Ciencia | Regístrate </title>
 </head>
 <body>
 <div class="container">
