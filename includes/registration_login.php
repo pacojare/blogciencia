@@ -3,6 +3,7 @@
 	$username = "";
 	$email    = "";
 	$errors = array(); 
+	$role = "Usuario";
 
 	// REGISTER USER
 	if (isset($_POST['reg_user'])) {
@@ -37,8 +38,8 @@
 		// register user if there are no errors in the form
 		if (count($errors) == 0) {
 			$password = md5($password_1);//encrypt the password before saving in the database
-			$query = "INSERT INTO users (username, email, password, created_at, updated_at) 
-					  VALUES('$username', '$email', '$password', now(), now())";
+			$query = "INSERT INTO users (username, email,role, password, created_at, updated_at) 
+					  VALUES('$username', '$email','$role', '$password', now(), now())";
 			mysqli_query($conn, $query);
 
 			// get id of created user
@@ -48,7 +49,7 @@
 			$_SESSION['user'] = getUserById($reg_user_id);
 
 			// if user is admin, redirect to admin area
-			if ( in_array($_SESSION['user']['role'], ["Admin", "Author"])) {
+			if ( in_array($_SESSION['user']['role'], ["Admin", "Autor"])) {
 				$_SESSION['message'] = "Ya estas logeado";
 				// redirect to admin area
 				header('location: ' . BASE_URL . 'admin/dashboard.php');
@@ -82,7 +83,7 @@
 				$_SESSION['user'] = getUserById($reg_user_id); 
 
 				// if user is admin, redirect to admin area
-				if ( in_array($_SESSION['user']['role'], ["Admin", "Author"])) {
+				if ( in_array($_SESSION['user']['role'], ["Admin", "Autor"])) {
 					$_SESSION['message'] = "Ya estas logeado";
 					// redirect to admin area
 					header('location: ' . BASE_URL . '/admin/dashboard.php');
@@ -118,8 +119,6 @@
 		$result = mysqli_query($conn, $sql);
 		$user = mysqli_fetch_assoc($result);
 
-		// returns user in an array format: 
-		// ['id'=>1 'username' => 'Awa', 'email'=>'a@a.com', 'password'=> 'mypass']
 		return $user; 
 	}
 ?>

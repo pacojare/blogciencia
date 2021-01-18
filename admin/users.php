@@ -3,7 +3,7 @@
 <?php 
 	// Get all admin users from DB
 	$admins = getAdminUsers();
-	$roles = ['Admin', 'Author'];				
+	$roles = ['Admin', 'Autor', 'Usuario'];				
 ?>
 <?php include(ROOT_PATH . '/admin/includes/header.php'); ?>
 	<title>Admin | Administrar Usuarios</title>
@@ -60,7 +60,7 @@
 				<table class="table">
 					<thead>
 						<th>N</th>
-						<th>Admin</th>
+						<th>Usuario</th>
 						<th>Rol</th>
 						<th colspan="2">Acción</th>
 					</thead>

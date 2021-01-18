@@ -2,12 +2,14 @@
 // Post variables
 $post_id = 0;
 $isEditingPost = false;
-$published = 0;
+$published = 1;
 $title = "";
 $post_slug = "";
 $body = "";
 $featured_image = "";
 $post_topic = "";
+$user_id = $_SESSION['user']['id'];
+
 
 /* - - - - - - - - - - 
 -  Post functions
@@ -21,7 +23,7 @@ function getAllPosts()
 	// Author can only view their posts
 	if ($_SESSION['user']['role'] == "Admin") {
 		$sql = "SELECT * FROM posts";
-	} elseif ($_SESSION['user']['role'] == "Author") {
+	} elseif ($_SESSION['user']['role'] == "Autor") {
 		$user_id = $_SESSION['user']['id'];
 		$sql = "SELECT * FROM posts WHERE user_id=$user_id";
 	}
@@ -30,7 +32,7 @@ function getAllPosts()
 
 	$final_posts = array();
 	foreach ($posts as $post) {
-		$post['author'] = getPostAuthorById($post['user_id']);
+		$post['autor'] = getPostAuthorById($post['user_id']);
 		array_push($final_posts, $post);
 	}
 	return $final_posts;
@@ -75,7 +77,7 @@ if (isset($_GET['delete-post'])) {
 - - - - - - - - - - -*/
 function createPost($request_values)
 	{
-		global $conn, $errors, $title, $featured_image, $topic_id, $body, $published;
+		global $conn, $errors, $title, $featured_image, $topic_id, $body, $published, $user_id;
 		$title = esc($request_values['title']);
 		$body = htmlentities(esc($request_values['body']));
 		if (isset($request_values['topic_id'])) {
@@ -107,7 +109,8 @@ function createPost($request_values)
 		}
 		// create post if there are no errors in the form
 		if (count($errors) == 0) {
-			$query = "INSERT INTO posts (user_id, title, slug, image, body, published, created_at, updated_at) VALUES(1, '$title', '$post_slug', '$featured_image', '$body', $published, now(), now())";
+			
+			$query = "INSERT INTO posts (user_id, title, slug, image, body, published, created_at, updated_at) VALUES('$user_id', '$title', '$post_slug', '$featured_image', '$body', $published, now(), now())";
 			if(mysqli_query($conn, $query)){ // if post created successfully
 				$inserted_post_id = mysqli_insert_id($conn);
 				// create relationship between post and topic

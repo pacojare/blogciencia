@@ -1,11 +1,22 @@
-/* * * * * * * * * *
-* STYLING DEFAULTS
-* * * * * * * * * */
-* { margin: 0px; padding: 0px; }
-a { text-decoration: none; }
-h1, h2, h3, h4, h5, h6 { font-family: 'Noto Serif', serif; }
+/*Estilos por default*/
+
+* { 
+    margin: 0px; 
+    padding: 0px; 
+}
+a {
+    text-decoration: none; 
+}
+h1, h2, h3, h4, h5, h6 { 
+    font-family: 'Times New Roman', Times, serif; 
+}
 /* forms */
-form { width: 60%; margin: 5px auto; padding-bottom: 50px; }
+form { 
+    width: 60%; 
+    margin: 5px auto; 
+    padding-bottom: 50px; 
+}
+
 form input[type=file], input[type=email], input[type=password], input[type=text], 
 form select, form textarea {
 	width: 100%;
@@ -18,15 +29,36 @@ form select, form textarea {
 	background: transparent;
 	border: 1px solid #3E606F;
 }
-input[type="checkbox"] { height: 20px; float: left; }
-form button { float: right; margin-left: 24%; }
-form input:focus { outline: none; }
-label {	margin-top: 20px; float: left; }
-/* tables */
-table { border-collapse: collapse; width: 70%; margin: 20px auto; }
-th, td { padding: 8px; text-align: left; border: 1px solid #ddd; }
-th { text-align: center;}
-/* buttons */
+input[type="checkbox"] { 
+    height: 20px; 
+    float: left; 
+}
+form button {
+    float: right; 
+    margin-left: 24%; 
+}
+form input:focus { 
+    outline: none; 
+}
+label {	
+    margin-top: 20px;
+    float: left; }
+
+/* Tablas */
+table { 
+    border-collapse: collapse; 
+    width: 70%; 
+    margin: 20px auto; 
+}
+th, td { 
+    padding: 8px; 
+    text-align: left; 
+    border: 1px solid #ddd; 
+}
+th {
+    text-align: center;
+}
+/* Botones */
 .btn {
 	color: white;
 	background: #4E6166;
@@ -38,65 +70,89 @@ th { text-align: center;}
 	padding: 13px 20px;
 	text-decoration: none;
 }
-/* * * * * * * * * *
-* HEADER
-* * * * * * * * * */
+/* Header*/
 .header {
 	padding: 15px 45px;
-	font-family: 'Noto Serif', serif;
+	font-family: 'Courier New', Courier, monospace;
 	color: white;
-	background: black;
+	background: #0E7D92;
 }
-.header .logo { width: 50%; float: left; }
-.header .logo h1 { color: white; }
-.header .user-info { width: 10%; margin-top: 10px; float: right;}
-.header .logout-btn { color: red; text-decoration: none; }
-.header:after{ content: ""; display: block; clear: both; }
-/* * * * * * * * * *
-* DASHBOARD
-* * * * * * * * * */
+.header .logo { 
+    width: 50%; 
+    float: left; 
+}
+.header .logo h1 { 
+    color: white; 
+}
+.header .user-info { 
+    width: 20%; 
+    margin-top: 10px; 
+    float: right;
+}
+.header .user-info a { 
+    color: white;
+}
+.header .logout-btn { 
+    color: red; 
+    text-decoration: none; 
+}
+.header:after{ 
+    content: ""; 
+    display: block; 
+    clear: both; 
+}
+
+/*Dashboard */
 .container {
 	width: 95%;
 	margin: 5px auto 50px;
-	border: 1px solid #BFBCB3;
+	border: 1px solid #040a22;
 	padding: 10px 0px 50px;
 }
-.container:after { content: ""; display: block; clear: both; }
-.container.dashboard h1 { text-align: center; margin: 25px; }
+.container:after { 
+    content: ""; 
+    display: block; 
+    clear: both; 
+}
+.container.dashboard h1 { 
+    text-align: center; 
+    margin: 25px; 
+}
 .container.dashboard .stats a {
 	display: inline-block;
 	padding: 30px;
 	margin: 5px;
-	width: 25%;
+	width: 28%;
 	text-align: center;
-	border-radius: 3px;
+    border-radius: 3px;
+    background-color:#E1E1E1;
 	border: 1px solid #BFBCB3;
 }
-.container.dashboard .stats a.first { margin-left: 25px; }
-.container.dashboard .stats a:hover { cursor: pointer; background-color: #E1E1E1; }
-.container.dashboard .buttons { margin-left: 15px; }
-.container.dashboard .buttons a {
-	display: inline-block;
-	margin: 10px;
-	text-decoration: none;
-	color: #444;
-	padding: 10px 25px;
-	border: none;
-	background-color: #0E7D92;
-	color: white;
+.container.dashboard .stats a.first { 
+    margin-left: 25px; 
 }
-/* * * * * * * * * *
-* PAGE CONTENT
-* * * * * * * * * */
-.container.content .menu { width: 16%; float: left; padding: 40px 10px; }
-/* Menu card */
+.container.dashboard .stats a:hover { 
+    cursor: pointer;  
+    background-color:#0E7D92; 
+    color: black;
+}
+
+/*contenido */
+.container.content .menu { 
+    width: 16%; 
+    float: left; 
+    padding: 40px 10px; 
+}
+/* Tarjetas */
 .container.content .menu .card .card-header {
 	padding: 10px;
 	text-align: center;
 	border-radius: 3px 3px 0px 0px;
 	background: #3E606F;
 }
-.container.content .menu .card .card-header h2 { color: white; }
+.container.content .menu .card .card-header h2 { 
+    color: white; 
+}
 .container.content .menu .card .card-content a {
 	display: block;
 	box-sizing: border-box;
@@ -105,25 +161,53 @@ th { text-align: center;}
 	color: #444;
 }
 .container.content .menu .card .card-content a:hover {
-	padding-left: 20px; background: #F9F9F9; transition: 0.1s;
+    padding-left: 20px; 
+    background: #F9F9F9; 
+    transition: 0.1s;
 }
 /* Actions div (at the middle) */
-.container.content .action { width: 35%; float: left; text-align: center; }
-.container.content .action form { width: 90%; }
-.container.content .action .page-title { margin: 25px; }
-.container.content .action.create-post-div { width: 80%; }
+.container.content .action { 
+    width: 35%; 
+    float: left; 
+    text-align: center; }
+.container.content .action form { 
+    width: 90%; 
+}
+.container.content .action .page-title { 
+    margin: 25px; 
+}
+.container.content .action.create-post-div { 
+    width: 80%; 
+}
 /* Table div (Displaying records from DB) */
-.table-div { float: left; width: 47%; }
-.table-div .message { width: 90%; margin-top: 20px; }
-.table-div table { width: 90%; }
-.table-div a.fa { color: white; padding: 3px; }
-.table-div .edit { background: #004220; }
-.table-div .delete { background: #F70E1A; }
-.table-div .publish { background: red; }
-.table-div .unpublish { background: green; }
-/* * * * * * * * * *
-* VALIDATION ERRORS
-* * * * * * * * * */
+.table-div { 
+    float: left; 
+    width: 47%; 
+}
+.table-div .message { 
+    width: 90%; 
+    margin-top: 20px; 
+}
+.table-div table { 
+    width: 90%; 
+}
+.table-div a.fa { 
+    color: white; 
+    padding: 3px; 
+}
+.table-div .edit { 
+    background: #004220; 
+}
+.table-div .delete { 
+    background: #F70E1A; 
+}
+.table-div .publish { 
+    background: red; 
+}
+.table-div .unpublish { 
+    background: green; 
+}
+/*Mensajes de error y validación*/
 .message {
 	width: 100%; 
 	margin: 0px auto; 
@@ -134,5 +218,13 @@ th { text-align: center;}
 	border-radius: 5px; 
 	text-align: center;
 }
-.error {color: #a94442; background: #f2dede; border: 1px solid #a94442; margin-bottom: 20px; }
-.validation_errors p {text-align: left;margin-left: 10px;}
+.error {
+    color: #a94442; 
+    background: #f2dede; 
+    border: 1px solid #a94442; 
+    margin-bottom: 20px; 
+}
+.validation_errors p {
+    text-align: left;
+    margin-left: 10px;
+}

@@ -31,10 +31,7 @@
 				</div>
 			<?php endif ?>
 			</div>
-			<!-- // full post div -->
 			
-			<!-- comments section -->
-			<!--  coming soon ...  -->
 		</div>
 		<!-- // Page wrapper -->
 
